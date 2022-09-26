@@ -1,0 +1,72 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .onespa {
+            display: inline-block;
+            width: 20%;
+            margin: 5%;
+            max-height: 200px;
+        }
+        .h1{
+          text-align: center;
+          width: auto;
+        }
+    </style>
+  </head>
+  
+  <body>
+    <h1>Spanish Country</h1>
+  
+    <div id="txt"></div>
+  
+    <div id="contents">
+  
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/py.png"> <br> Paraguay<span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/pa.png"> <br> Panama<span></span></div>
+      <div class="onespa"><img width="100%" src="https://mainfacts.com/media/images/coats_of_arms/do.png"> <br>Republik Dominikan <span></span></div>
+      <div class="onespa"><img width="100%" src="https://mainfacts.com/media/images/coats_of_arms/ar.png"> <br> Argentina<span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/es.png"> <br> Spanish<span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/gt.png"> <br> Guatemala<span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/cl.png"> <br> Chile<span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/cr.png"> <br>Costa Rica <span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/pr.png"> <br>Puerto Rico <span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/co.png"> <br> Colombia<span></span></div>
+      <div class="onespa"><img width="100%" src="https://mainfacts.com/media/images/coats_of_arms/ec.png"> <br> Ecuador<span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/mx.png"> <br> Mexico<span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/ni.png"> <br>Nicaragua <span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/sv.png"> <br>El Salvador <span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/cu.png"> <br> cuba<span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/gu.png"> <br> Guam<span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/pe.png"> <br>Peru <span></span></div>
+      <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/ve.png"> <br> Venezuela<span></span></div>
+  
+      
+  
+  
+    <script>
+        fetch("https://restcountries.com/v3.1/lang/spa")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (json) {
+                
+                console.log(json);
+  
+                
+                for(var i=0; i < json.data.spa.length; i++){
+                   
+                    var onespa = "<img width='100%' src='" + json.data.spa[i].url + "'> <br> <span>" + json.data.spa[i].name + "</span>";
+                    document.querySelector("#contents").innerHTML += "<div class='onespa'>" + onespa + "</div>";
+                }
+            })
+            .catch(function (error) {
+                console.log('Request failed', error);
+            });
+  
+    </script>
+  
+  
+  </body></html>
